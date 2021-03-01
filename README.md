@@ -11,6 +11,9 @@ Simple Operating System for x86
 
 4. Boot from Bochs.
 
+## Demo
+![demo](https://github.com/mix64/mixv6/blob/master/demo.gif?raw=true)
+
 ### TODO
 ・Support TCP/IP.  
 ・Implementation heap memory for kernel. (like Slab allocation or kalloc())  
