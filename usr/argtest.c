@@ -6,5 +6,4 @@ int main(int argc, char *argv[])
         printf("argv[%d] = %s\n", i, argv[i]);
     }
     exit();
-    return 0;
 }

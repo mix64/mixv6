@@ -19,6 +19,9 @@ int strcmp(const char *p, const char *q, uint32_t limit)
             return 0;
         p++, q++, limit--;
     }
+    if (limit > 0 && *q != 0) {
+        return 0;
+    }
     return 1;
 }
 

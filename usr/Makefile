@@ -2,6 +2,8 @@ FILES = \
 		_shell\
 		_ls\
 		_argtest\
+		_cat\
+		_calc
 
 CC = gcc
 LD = ld
@@ -23,6 +25,8 @@ ASFLAGS = -m32 -gdwarf-2 -Wa,-divide
 LDFLAGS = -m $(shell $(LD) -V | grep elf_i386 2>/dev/null | head -n 1)
 
 all: $(FILES)
+	cp cat.c $(OBJDIR)/_cat.c
+	cp calc.c $(OBJDIR)/_calc.c
 
 _%: %.o ulib.o
 	$(LD) $(LDFLAGS) -T user.ls -o $(OBJDIR)/$@ $^

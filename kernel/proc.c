@@ -259,6 +259,17 @@ void wakeup(void *wchan)
     popcli();
 }
 
+void ps()
+{
+    pushcli();
+    for (int i = 0; i < NPROC; i++) {
+        if (proc[i].stat != UNUSED) {
+            printf("proc[%d]: PID %d, Status: %d, wchan:%x \n", i, proc[i].pid, proc[i].stat, proc[i].wchan);
+        }
+    }
+    popcli();
+}
+
 void procdump()
 {
     printf("pid:%d\n", user.procp->pid);

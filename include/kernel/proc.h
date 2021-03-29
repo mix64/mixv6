@@ -46,3 +46,4 @@ void sleep(void *wchan);
 void wakeup(void *wchan);
 void procdump();
 void collect_zombies();
+void ps();

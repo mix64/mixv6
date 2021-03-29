@@ -15,13 +15,16 @@ void fsinit()
 {
     struct inode *ip;
 
-    // stdin & stdout
+    // stdin
     ip        = ialloc();
     ip->devno = DEV_CONSOLE;
     ip->type  = T_DEV;
-
     file[STDIN].refcnt  = 1;
     file[STDIN].inode   = ip;
+    // stdout
+    ip        = ialloc();
+    ip->devno = DEV_CONSOLE;
+    ip->type  = T_DEV;
     file[STDOUT].refcnt = 1;
     file[STDOUT].inode  = ip;
 

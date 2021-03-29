@@ -17,6 +17,12 @@ int main(void)
         if (*cmd == '\0') {
             continue;
         }
+        int is_background = 0;
+        for (int i = 0; i < 128; i++) {
+            if (cmd[i] == '&') {
+                is_background = 1;
+            }
+        }
         if ((pid = fork()) < 0) { // fork error
             printf("fork error\n");
         }
@@ -28,7 +34,9 @@ int main(void)
             exit();
         }
         else { // parent
-            wait();
+            if (is_background == 0) {
+                wait();
+            }
         }
         memset(cmd, 0, sizeof(cmd));
     }
